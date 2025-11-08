@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Prize {
+  id          String   @id @default(uuid()) @db.Uuid
+  key         String   @unique
+  title       String
+  payload     Json
+  weight      Float
+  singleClaim Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  SpinPrize   Spin[]
+}
+
+
+model Spin {
+  id          String   @id @default(uuid()) @db.Uuid
+  title       String
+  userId      String   @db.Uuid
+  prizeId     String   @db.Uuid
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+
+  prize       Prize @relation(fields: [prizeId], references: [id])
+}

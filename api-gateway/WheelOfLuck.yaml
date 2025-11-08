@@ -1,0 +1,360 @@
+openapi: 3.0.0
+info:
+  title: My API
+  description: Converted from Postman Collection
+  version: 1.0.0
+servers:
+  - url: http://localhost:3003
+tags:
+  - name: user
+  - name: user > auth
+  - name: user > users
+  - name: campaign
+  - name: campaign > prizes
+  - name: campaign > spin
+  - name: shopping
+  - name: shopping > Goods
+  - name: shopping > Purchases
+paths:
+  /auth/signup:
+    post:
+      tags:
+        - user > auth
+      summary: Signup
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n    \"name\": \"Ahmad\",\n    \"email\":
+                \"ahmad@gmail.com\",\n    \"phone\": \"+98 (912)
+                892-9876\",\n    \"password\": \"123456\"\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /auth/login:
+    post:
+      tags:
+        - user > auth
+      summary: Login
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n  \"phone\": \"+95 (915) 456-9876\",\n  \"password\":
+                \"123456\"\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users/me:
+    get:
+      tags:
+        - user > users
+      summary: Get User Info
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users/prizes:
+    get:
+      tags:
+        - user > users
+      summary: userPrizes
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users/stats:
+    get:
+      tags:
+        - user > users
+      summary: Get User Stats (Score + Records)
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /prizes:
+    get:
+      tags:
+        - campaign > prizes
+      summary: Get All Prizes
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - campaign > prizes
+      summary: addPrize
+      requestBody:
+        content: {}
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /prizes/14c336f2-c3c6-450d-9655-41455837aa69:
+    put:
+      tags:
+        - campaign > prizes
+      summary: updatePrize
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                key: discount_20
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - campaign > prizes
+      summary: deletePrize
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /spins:
+    post:
+      tags:
+        - campaign > spin
+      summary: Spin Wheel
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: '"{}"'
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /goods:
+    post:
+      tags:
+        - shopping > Goods
+      summary: Create Good
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n  \"name\": \"Mobile Phone\",\n  \"description\":
+                \"Beautiful Mobile\",\n  \"price\": 5000000\n}"
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - shopping > Goods
+      summary: Get All Goods
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /goods/{goodId}:
+    put:
+      tags:
+        - shopping > Goods
+      summary: Update Good
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: '"{\n  \"name\": \"Mobile Phone New\",\n  \"price\": 2000000\n}"'
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: goodId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - shopping > Goods
+      summary: Delete Good
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+        - name: goodId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /purchases:
+    post:
+      tags:
+        - shopping > Purchases
+      summary: Create Purchase
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: '"{\n  \"goodId\": \"{{goodId}}\",\n  \"amount\": 1\n}"'
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - shopping > Purchases
+      summary: Get Purchases
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{token}}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
