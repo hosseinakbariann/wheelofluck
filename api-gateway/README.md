@@ -1,4 +1,4 @@
-# User Service
+# API-Gateway Service
 
 The WheelOfLuck API-gateway is responsible for connecting all microservices to the client
 and acting as a proxy.

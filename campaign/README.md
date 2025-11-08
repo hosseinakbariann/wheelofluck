@@ -1,4 +1,4 @@
-# User Service
+# Campaign Service
 
 The Campaign Microservice is responsible for managing prizes and spins
 it includes two main modules 'prizes' and 'spins'

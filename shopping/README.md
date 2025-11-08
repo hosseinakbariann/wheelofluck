@@ -1,4 +1,4 @@
-# User Service
+# Shopping Service
 
 The Shopping Microservice is responsible for managing goods and purchasing
 it includes two main modules 'goods' and 'purchases'
