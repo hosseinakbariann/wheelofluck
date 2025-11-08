@@ -1,7 +1,7 @@
 # User Service
 
 The User Microservice is responsible for authentication and user mangement
-it includes two main module 'auth' and 'users'
+it includes two main modules 'auth' and 'users'
 
 ## Technologies
 - NestJS

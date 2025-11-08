@@ -1,7 +1,7 @@
 # User Service
 
 The Shopping Microservice is responsible for managing goods and purchasing
-it includes two main module 'goods' and 'purchases'
+it includes two main modules 'goods' and 'purchases'
 
 ## Technologies
 - NestJS

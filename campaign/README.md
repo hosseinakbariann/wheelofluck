@@ -1,7 +1,7 @@
 # User Service
 
 The Campaign Microservice is responsible for managing prizes and spins
-it includes two main module 'prizes' and 'spins'
+it includes two main modules 'prizes' and 'spins'
 
 ## Technologies
 - NestJS
